@@ -1,0 +1,649 @@
+<hero-code id="herocard" class="HeroSection--illustration language-sh" language="sh">
+    <div class="HeroSection--illustration">
+        <div class="HeroSection--illustration-card">
+<!-- prettier-ignore-start -->
+<pre class="CodeBlock CodeBlock-is-hero CodeBlock-scrolls-horizontally CodeBlock--language-sh"><code class="CodeBlock--code">
+<u><b class="CodeBlock--token-comment"># Install Wrangler, and log into your account</b><br />
+<b class="CodeBlock--token-directory">~/</b> <b class="CodeBlock--token-prompt">$</b> </u>npm install -g wrangler<br /><u><br />
+<b class="CodeBlock--token-comment"># Create and publish a “Hello World” Worker</b><br />
+<b class="CodeBlock--token-directory">~/</b> <b class="CodeBlock--token-prompt">$</b> </u>wrangler init hello -y<br />
+<u><b class="CodeBlock--token-directory">~/</b> <b class="CodeBlock--token-prompt">$</b> </u>cd hello<br />
+<u><b class="CodeBlock--token-directory">~/hello</b> <b class="CodeBlock--token-prompt">$</b> </u>wrangler publish<u><br />
+<b class="CodeBlock--token-success">Published</b><b class="CodeBlock--token-success"> </b><b class="CodeBlock--token-value">https://hello.world.workers.dev</b></u></code>
+</pre>
+<!-- prettier-ignore-end -->
+        </div>
+    </div>
+</hero-code>
+
+<style>
+    .HeroSection--illustration {
+        flex-shrink: 0;
+        font-size: 1em;
+        width: calc(1em * 28.8em);
+        line-height: 1;
+    }
+
+    .HeroSection--notice-wrap {
+        display: block;
+        margin: calc(-1 * var(28.8em) + 2.75em) auto 7em;
+        padding: 0 10vw;
+        text-align: center;
+    }
+
+    @media (min-width: 1001px) and (max-width: 1300px) {
+        .HeroSection--column {
+            --illustration-font-size: 1.4vw;
+        }
+    }
+
+    @media (min-width: 1001px) {
+        .HeroSection--illustration {
+            perspective: 1500px;
+            margin-bottom: 1em;
+        }
+
+        .HeroSection--illustration-card {
+            transform: rotate3d(.5, -.866, 0, 15deg) rotateZ(1deg);
+            box-shadow: 2em 4em 6em -2em rgb(0, 0, 0, .5), 1em 2em 3.5em -2.5em rgba(0, 0, 0, .5);
+            border-radius: .5em;
+            will-change: transform;
+            transition: transform .4s ease, box-shadow .4s ease;
+        }
+    }
+
+    @media (min-width: 1001px) and (hover: hover) {
+
+        .HeroSection--illustration:hover .HeroSection--illustration-card,
+        .HeroSection--illustration[has-selection-contained-within] .HeroSection--illustration-card {
+            transform: rotate3d(0, 0, 0, 0deg) rotateZ(0deg);
+        }
+    }
+
+    @media (max-width: 1000px) {
+        .HeroSection--column {
+            flex-direction: column;
+            width: 32em;
+            max-width: 100%;
+            padding-left: 1em;
+            padding-right: 1em;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .HeroSection--content {
+            margin-right: 0;
+            margin-bottom: 3em;
+            flex: 0;
+        }
+
+        .HeroSection--key-points {
+            font-size: 1em;
+        }
+
+        .HeroSection--illustration {
+            width: 100%;
+        }
+
+        .HeroSection--notice-wrap {
+            width: 38em;
+            max-width: 100%;
+            margin-top: 0;
+        }
+    }
+
+    @media (max-width: 414px) {
+        .HeroSection--column {
+            --vertical-padding-top: 2em;
+        }
+
+        .HeroSection--content {
+            text-align: center;
+        }
+
+        .HeroSection--title {
+            font-size: 8.8vw;
+        }
+
+        .HeroSection--description {
+            font-size: 1.25em;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .HeroSection--actions {
+            justify-content: center;
+            font-size: 1.2em;
+            margin-bottom: 2em;
+        }
+
+        .HeroSection--actions-desktop {
+            display: none;
+        }
+
+        .HeroSection--actions-mobile {
+            display: flex;
+        }
+
+        .HeroSection--illustration {
+            font-size: .75em;
+        }
+    }
+
+    @media only screen and (max-width: 1026px) {
+        /* .CodeBlock--code {
+            font-size: 18px;
+        } */
+        .HeroSection--column {
+            flex-direction: column;
+            width: 32em;
+            max-width: 100%;
+            padding-left: 1em;
+            padding-right: 1em;
+            margin-left: auto;
+            margin-right: auto;
+            font-size: 18px;
+            overflow-x: auto;
+        }
+
+        .HeroSection--content {
+            margin-right: 0;
+            margin-bottom: 3em;
+            flex: 0;
+        }
+
+        .HeroSection--illustration {
+            width: 100%;
+        }
+
+        .HeroSection--notice-wrap {
+            width: 38em;
+            max-width: 100%;
+            margin-top: 0;
+        }
+        #herocard {
+            margin-top: 2em;
+            vertical-align: middle;
+        }
+    }
+
+    /* codeblock starts with variables */
+
+    .CodeBlock {
+        font-family: Consolas, Monaco, 'Andale Mono', 'Lucida Console', monospace;
+        -webkit-font-smoothing: antialiased;
+        position: relative;
+        display: block;
+        white-space: pre-wrap;
+        word-break: break-word;
+        /* font-size: var(--code-font-size); */
+        margin: 0;
+        border-radius: .5em;
+        background: rgb(36 38 40);
+        color: #FFF;
+        /* margin-left: calc(-1 * 0rem); */
+        width: calc(100% + (2 * 0rem));
+        max-width: calc(100% + (2 * 0rem));
+        cursor: text;
+    }
+
+    .CodeBlock>code {
+        display: block;
+        padding: .7em 1.25em;
+        font-family: inherit;
+        cursor: default;
+    }
+
+    .CodeBlock>code>* {
+        cursor: text;
+    }
+
+    .CodeBlock>code::-webkit-scrollbar {
+        height: 14px;
+    }
+
+    .CodeBlock>code::-webkit-scrollbar-track-piece {
+        background: transparent;
+        border-radius: .5em;
+    }
+
+    .CodeBlock>code::-webkit-scrollbar-thumb {
+        border-radius: .5em;
+        box-shadow: inset 0 1px 1px rgba(var(--background-color-rgb), .1);
+        background-color: var(--code-block-scrollbar-color);
+        background-clip: padding-box;
+        border: 4px solid transparent;
+        border-radius: calc(20 * .5em);
+    }
+
+    .CodeBlock-is-one-liner>code {
+        border-radius: calc(.625 * .5em);
+        white-space: nowrap;
+        word-break: normal;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .CodeBlock-scrolls-horizontally>code {
+        white-space: pre;
+        word-break: normal;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .CodeBlock-is-hero {
+        --padding-vertical: 1.25em;
+        /* 1.5em: 1.5em; */
+        box-shadow:
+            0 1px 1px rgba(var(--shadow-color-rgb), .075),
+            0 .1333em .26667em rgba(var(--shadow-color-rgb), .075),
+            0 .2222em .66667em 0 rgba(var(--shadow-color-rgb), .075),
+            0 .4444em 1.3333em 0 rgba(var(--shadow-color-rgb), .075);
+    }
+
+    .CodeBlock--header,
+    .CodeBlock--filename {
+        display: block;
+        background: rgb(36 38 40);
+        box-shadow: 0 1px rgba(var(--shadow-color-rgb), .12);
+        padding: .4em var(1.5em);
+        border-radius: .5em .5em 0 0;
+        opacity: .9;
+        font-weight: bold;
+    }
+
+    /* .CodeBlock-is-light-in-light-theme .CodeBlock--header,
+    .CodeBlock-is-light-in-light-theme .CodeBlock--filename {
+        background: transparent;
+    } */
+
+    .CodeBlock--header {
+        font-family: Consolas, Monaco, 'Andale Mono', 'Lucida Console', monospace;
+    }
+
+    .CodeBlock--filename {
+        padding-top: .45em;
+        font-size: .9em;
+        padding-left: calc(var(1.5em) / .9);
+        padding-right: calc(var(1.5em) / .9);
+    }
+
+    .CodeBlock b {
+        font-weight: normal;
+        padding-left: 0;
+    }
+
+    .CodeBlock u {
+        -webkit-user-select: none;
+        user-select: none;
+        pointer-events: none;
+        text-decoration: none;
+        transition: opacity .25s ease;
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .CodeBlock:hover u,
+    .CodeBlock[has-selection-contained-within] u {
+        opacity: .25;
+    }
+
+    /* CodeBlock with rows */
+
+    .CodeBlock.CodeBlock-with-rows.CodeBlock-scrolls-horizontally>code {
+        display: block;
+    }
+
+    .CodeBlock.CodeBlock-with-rows,
+    .CodeBlock.CodeBlock-with-rows>code {
+        white-space: normal;
+    }
+
+    .CodeBlock-with-rows>code {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .CodeBlock-with-rows .CodeBlock--rows {
+        display: block;
+    }
+
+    .CodeBlock-with-rows .CodeBlock--rows-content {
+        display: inline-block;
+        min-width: 100%;
+    }
+
+    .CodeBlock-with-rows .CodeBlock--row {
+        position: relative;
+        display: block;
+        width: 100%;
+    }
+
+    .CodeBlock-with-rows .CodeBlock--row-content {
+        display: block;
+        white-space: pre-wrap;
+        padding: 0 var(1.5em);
+    }
+
+    .CodeBlock-with-rows.CodeBlock-scrolls-horizontally .CodeBlock--row-content {
+        white-space: pre;
+    }
+
+    .CodeBlock--row-is-highlighted {
+        background: rgba(var(--color-rgb), .05);
+        box-shadow: inset 2px 0 rgba(var(--color-rgb), .3);
+    }
+
+    .CodeBlock--row-diff-add {
+        --row-diff-background-color: rgba(var(--color-rgb), .05);
+        background: var(--row-diff-background-color);
+    }
+
+    .CodeBlock-with-rows .CodeBlock--row-diff-add {
+        --row-diff-background-color: rgba(var(--background-color-rgb), .8);
+    }
+
+    .CodeBlock--row-diff-remove {
+        -webkit-user-select: none;
+        user-select: none;
+        pointer-events: none;
+        text-decoration: none;
+    }
+
+    .CodeBlock-with-rows .CodeBlock--row-diff-add .CodeBlock--row-indicator,
+    .CodeBlock-with-rows .CodeBlock--row-diff-remove .CodeBlock--row-indicator {
+        position: sticky;
+        left: 0;
+        display: flex;
+        border-left: .125em solid;
+        --width: .75em;
+        width: var(--width);
+        margin-right: calc(-1 * var(--width));
+        background:
+            linear-gradient(to right, var(--row-diff-background-color), transparent),
+            linear-gradient(to right, var(--code-block-background-color), transparent);
+    }
+
+    .CodeBlock-with-rows .CodeBlock--row-diff-add .CodeBlock--row-indicator {
+        border-left-color: var(--diff-indicator-green);
+    }
+
+    .CodeBlock-with-rows .CodeBlock--row-diff-remove .CodeBlock--row-indicator {
+        border-left-color: var(--diff-indicator-red);
+    }
+
+    .CodeBlock-with-rows.CodeBlock-is-light-in-light-theme .CodeBlock--row-diff-add .CodeBlock--row-indicator {
+        background: transparent;
+    }
+
+    .CodeBlock-with-rows .CodeBlock--word-remove {
+        opacity: .5;
+        position: relative;
+    }
+
+    .CodeBlock-with-rows .CodeBlock--word-remove::after {
+        content: "";
+        display: block;
+        position: absolute;
+        top: .125em;
+        right: -.5em;
+        bottom: 0em;
+        left: -.5em;
+        height: 1px;
+        margin-top: auto;
+        margin-bottom: auto;
+        background: linear-gradient(to right,
+                rgba(var(--color-rgb), 0),
+                rgba(var(--color-rgb), 0) 1em,
+                rgba(var(--color-rgb), .5) 2em,
+                rgba(var(--color-rgb), .5) calc(100% - 2em),
+                rgba(var(--color-rgb), 0) calc(100% - .5em),
+                rgba(var(--color-rgb), 0));
+    }
+
+    /* PrismJS syntax highlighting */
+
+    .CodeBlock--token-punctuation,
+    .CodeBlock--token-template-string.CodeBlock--token-interpolation {
+        color: inherit;
+    }
+
+    .CodeBlock--token-comment,
+    .CodeBlock--token-block-comment,
+    .CodeBlock--token-prolog,
+    .CodeBlock--token-doctype,
+    .CodeBlock--token-cdata {
+        font-style: italic;
+        color: #a7a7a3;
+    }
+
+    .CodeBlock--token-keyword,
+    .CodeBlock--token-operator,
+    .CodeBlock--token-template-string.CodeBlock--token-interpolation.CodeBlock--token-interpolation-punctuation {
+        color: #ed8978;
+    }
+
+    .CodeBlock--token-class,
+    .CodeBlock--token-class-name,
+    .CodeBlock--token-function,
+    .CodeBlock--token-function-name,
+    .CodeBlock--token-template-string.CodeBlock--token-interpolation.CodeBlock--token-function {
+        color: #57c78f;
+    }
+
+    .CodeBlock--token-symbol,
+    .CodeBlock--token-constant,
+    .CodeBlock--token-template-string.CodeBlock--token-interpolation.CodeBlock--token-interpolation-constant {
+        color: var(--code-indigo);
+    }
+
+    .CodeBlock--token-arrow,
+    .CodeBlock--token-declaration-keyword {
+        color: var(--code-cyan);
+    }
+
+    .CodeBlock--token-parameter,
+    .CodeBlock--token-function-parameter {
+        font-style: italic;
+        color: var(--code-lilac);
+    }
+
+    .CodeBlock--token-number,
+    .CodeBlock--token-boolean,
+    .CodeBlock--token-null-undefined,
+    .CodeBlock--token-builtin,
+    .CodeBlock--token-method {
+        color: var(--code-violet);
+    }
+
+    .CodeBlock--token-api {
+        color: #fba056;
+    }
+
+    .CodeBlock--token-char,
+    .CodeBlock--token-regex,
+    .CodeBlock--token-string,
+    .CodeBlock--token-template-string,
+    .CodeBlock--token-object-property {
+        color: #fdda68;
+    }
+
+    .CodeBlock--token-bold,
+    .CodeBlock--token-important {
+        font-weight: bold;
+    }
+
+    .CodeBlock--token-italic {
+        font-style: italic;
+    }
+
+    .CodeBlock--token-namespace,
+    .CodeBlock--token-deleted {
+        color: #ed8978;
+    }
+
+    .CodeBlock--token-entity {
+        color: #78c0ed;
+        cursor: help;
+    }
+
+    .CodeBlock--token-inserted {
+        color: #57c78f;
+    }
+
+    .CodeBlock--token-url,
+    .CodeBlock--token-link {
+        color: var(--code-violet);
+    }
+
+    .CodeBlock--token-url.CodeBlock--token-content,
+    .CodeBlock--token-link.CodeBlock--token-content {
+        color: inherit;
+    }
+
+    .CodeBlock--token-tag {
+        color: #ed8978;
+    }
+
+    .CodeBlock--token-tag.CodeBlock--token-punctuation {
+        color: inherit;
+    }
+
+    .CodeBlock--token-tag.CodeBlock--token-attr-name {
+        color: #57c78f;
+    }
+
+    .CodeBlock--token-tag.CodeBlock--token-attr-name+.CodeBlock--token-punctuation {
+        color: inherit;
+    }
+
+    .CodeBlock--token-tag.CodeBlock--token-attr-value {
+        color: #fdda68;
+    }
+
+    .CodeBlock--language-css.CodeBlock--token-style.CodeBlock--token-punctuation {
+        color: inherit;
+    }
+
+    .CodeBlock--token-directory {
+        color: #fba056;
+    }
+
+    .CodeBlock--token-prompt {
+        color: #fba056;
+        opacity: .7;
+    }
+
+    .CodeBlock--token-value {
+        color: #71e4f4;
+    }
+
+    .CodeBlock--token-success {
+        color: #57c78f;
+    }
+
+    .CodeBlock--token-plain {
+        color: #a7a7a3;
+    }
+
+    .CodeBlock--token-plain,
+    .CodeBlock--token-unselectable {
+        -webkit-user-select: none;
+        user-select: none;
+        pointer-events: none;
+        text-decoration: none;
+        transition: opacity .25s ease;
+    }
+
+    [language="sh"]:hover .CodeBlock--token-plain,
+    [language="sh"]:hover .CodeBlock--token-unselectable,
+    [language="sh"][has-selection-contained-within] .CodeBlock--token-plain,
+    [language="sh"][has-selection-contained-within] .CodeBlock--token-unselectable {
+        opacity: .25;
+    }
+
+    /* TODO: revisit */
+    /* Temporary fix for bugs in which empty lines can appear missing. */
+    .CodeBlock--row>.CodeBlock--row-indicator:empty+.CodeBlock--row-content>.CodeBlock--token-plain:empty+.CodeBlock--token-doc-comment.CodeBlock--token-comment:empty::after,
+    .CodeBlock--row>.CodeBlock--row-indicator:empty+.CodeBlock--row-content>.CodeBlock--token-table.CodeBlock--token-table-data-rows:empty+.CodeBlock--token-plain:empty::after {
+        content: " ";
+    }
+
+    .InlineCode {
+        font-family: Consolas, Monaco, 'Andale Mono', 'Lucida Console', monospace;
+        font-size: var(--inline-code-font-size);
+        --default-padding: .2em .3em;
+        padding: var(--padding, var(--default-padding));
+        --default-background: rgba(var(--color-rgb), .05);
+        background: var(--background, var(--default-background));
+        border-radius: .25em;
+        max-width: 100%;
+    }
+
+    .InlineCode.InlineCode-is-nowrap {
+        white-space: nowrap;
+    }
+
+    .InlineCode.InlineCode-is-type,
+    .InlineCode--type {
+        font-weight: 700;
+        font-size: .7rem;
+        border-radius: .2em;
+        opacity: .75;
+        --border-opacity: .4;
+        box-shadow: 0 0 0 1px rgba(var(--color-rgb), var(--border-opacity));
+        -webkit-user-select: none;
+        user-select: none;
+        pointer-events: none;
+    }
+
+    .InlineCode.InlineCode-is-type {
+        --border-opacity: .3;
+    }
+
+    .InlineCode.InlineCode-is-type {
+        padding: 1px 4px;
+        /* Avoid messy em-rounding */
+        --background: transparent;
+    }
+
+    .InlineCode--type {
+        padding: 0 3px;
+        /* Avoid messy em-rounding */
+        margin-left: .5em;
+        --border-opacity: .25;
+    }
+
+    @media (max-width: 768px) {
+
+        .InlineCode.InlineCode-is-type,
+        .InlineCode--type {
+            padding: 0 2px;
+        }
+    }
+
+    /* .Number {
+  line-height: 1.5;
+  white-space: nowrap;
+}
+
+.Number--dollars {
+  display: inline-block;
+  font-size: .75em;
+  vertical-align: top;
+  line-height: 1;
+  margin-top: .45em;
+  padding-right: .05em;
+}
+
+.Number--per,
+.Number--per-unit,
+.Number--unit {
+  font-size: .8em;
+}
+
+.Number.Number-is-strong .Number--dollars,
+.Number.Number-is-strong .Number--number {
+  font-weight: 500;
+} */
+</style>
